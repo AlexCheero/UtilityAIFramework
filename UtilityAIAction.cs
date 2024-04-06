@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace UtilityAI
 {
-    public abstract class BaseUtilityAIAction<T> : ScriptableObject where T : struct, Enum
+    public abstract class UtilityAIAction<T> : ScriptableObject where T : struct, Enum
     {
         public abstract T ActionType { get; }
 
         [Serializable]
         private struct AxisCurvePair
         {
-            public BaseConsiderationAxis Axis;
+            public ConsiderationAxis Axis;
             public AnimationCurve Curve;
         }
 

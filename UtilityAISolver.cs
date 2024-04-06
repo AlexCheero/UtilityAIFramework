@@ -13,7 +13,7 @@ namespace UtilityAI
     public static class UtilityAISolver
     {
         public static T Solve<T>(
-            BaseUtilityAIAction<T>[] actions,
+            UtilityAIAction<T>[] actions,
             IAIContext botContext,
             SwitchEquivalentActionSettings switchEquivalentSettings,
             T bestAction) where T : struct, Enum

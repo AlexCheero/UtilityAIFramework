@@ -2,7 +2,7 @@
 
 namespace UtilityAI
 {
-    public abstract class BaseConsiderationAxis : ScriptableObject
+    public abstract class ConsiderationAxis : ScriptableObject
     {
         public static T SpecifyContext<T>(IAIContext context) where T : IAIContext
         {
