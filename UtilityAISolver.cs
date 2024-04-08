@@ -10,9 +10,9 @@ namespace UtilityAI
         public float actionChooseProbability;
     }
 
-    public static class UtilityAISolver
+    public class UtilityAISolver
     {
-        public static T Solve<T>(
+        public T Solve<T>(
             UtilityAIAction<T>[] actions,
             IAIContext botContext,
             SwitchEquivalentActionSettings switchEquivalentSettings,
