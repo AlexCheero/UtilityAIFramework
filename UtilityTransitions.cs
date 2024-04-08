@@ -14,13 +14,19 @@ namespace UtilityAI
         public void AddExitCallback(ActionType from, TransitionCallback callback)
         {
             _exitCallbacks ??= new();
-            _exitCallbacks[from] = callback;
+            if (!_exitCallbacks.ContainsKey(from))
+                _exitCallbacks[from] = callback;
+            else
+                _exitCallbacks[from] += callback;
         }
 
         public void AddEnterCallback(ActionType to, TransitionCallback callback)
         {
             _enterCallbacks ??= new();
-            _enterCallbacks[to] = callback;
+            if (!_enterCallbacks.ContainsKey(to))
+                _enterCallbacks[to] = callback;
+            else
+                _enterCallbacks[to] += callback;
         }
 
         public void AddTransition(ActionType from, ActionType to, TransitionCallback callback)
@@ -28,7 +34,10 @@ namespace UtilityAI
             _transitions ??= new();
             if (!_transitions.ContainsKey(from))
                 _transitions[from] = new();
-            _transitions[from][to] = callback;
+            if (!_transitions[from].ContainsKey(from))
+                _transitions[from][to] = callback;
+            else
+                _transitions[from][to] += callback;
         }
 
         public void OnActionChange(ActionType from, ActionType to, PayloadType payload)
